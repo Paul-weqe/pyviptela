@@ -1,5 +1,3 @@
-from pprint import pprint
-
 from PyInquirer import prompt, Separator
 from vmanage.device import Device
 from questions import *
@@ -41,7 +39,6 @@ class VmanagePrompts:
         filename = filename_answer.get('filename')
         template_data = VmanagePrompts.parse_json_file_data(filename)
         template_choices = [Separator('=The Feature Templates=')]
-        pprint(template_choices)
         for x in template_data['data']:
             template_name = x['templateName']
             template_choices.append({'name': f"{template_name}"})
