@@ -1,3 +1,4 @@
 *.json
 venv/*
 main.py
+.idea/*
