@@ -1,7 +1,10 @@
 CHOICES = {
     'actions_choices': [
+        'Download All Templates',
+        'Upload All Templates to a Vmanage Device',
         'Download Feature Templates from a VManage Device',
-        'Upload Feature Templates to a VManage Device'
+        'Upload Feature Templates to a VManage Device',
+        'Download Device Templates from a VManage Device'
     ],
     'template_options': [
         'all'
@@ -53,5 +56,12 @@ QUESTIONS = {
             'choices': CHOICES['actions_choices']
         }
     ],
+    'template_questions': [
+        {
+            'type': 'input',
+            'name': 'templates_save_name',
+            'message': 'What would you like to save these templates as ?'
+        }
+    ]
 
 }
