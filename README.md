@@ -13,8 +13,36 @@ cd pyviptela
 python3 -m venv venv
 source venv/bin/activate
 
+pip install -r requirements.txt
+
 # And we have the environment up and ready to go
 ```
+
+## Transferring all Templates from one vmanage device to another
+The transfer of templates from one vmanage to another is a two step process:
+1. Download the templates from the originating vmanage device
+2. Upload the templates to the receiving vmanage device
+
+### 1. Download templates from originating vmanage device. 
+First, we run the following command:
+```shell
+python vmanage_prompt.py
+```
+
+This will provide a prompt that looks like the following:
+![plot](./images/Download%20All%20Templates%20Initial%20Prompt.png)
+
+Select the first option (<b>Download All Templates</b>)
+After this you will be prompted to enter the credentials of the vmanage device you want to Download from. Enter the values of the respective fields depending on what your vmanage device. 
+
+After this, you will be asked for the name you want to save the configuration as. We can save it as whatever name we want to remember the configuration as. 
+It will take sometime but once completed you will have downloaded all the templates from the vmanage that you specified. 
+
+### 2. Upload the templates to the receiving vmanage device. 
+You enter the `python vmanage_prompt.py` command just like before. This time, however, you choose <b>Upload All Templates to a Vmanage Device</b>. 
+
+You will have the following prompt:
+![plot](./images/Sandbox%20Configs.png)
 
 ### Download Feature Templates to a json file
 To download feature templates, we first run the following command:
