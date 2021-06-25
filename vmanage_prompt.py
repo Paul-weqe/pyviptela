@@ -127,20 +127,25 @@ class VmanagePrompts:
         pathlib.Path(f"{dir_path}/device_templates/cli/").mkdir(parents=True, exist_ok=True)
         pathlib.Path(f"{dir_path}/device_templates/features/").mkdir(parents=True, exist_ok=True)
 
+        print("\033[1m -------------------------- DOWLOADING FEATURE TEMPLATES -------------------------------\033[0m")
         for template in feature_templates['data']:
             template_filename = template['templateId']
+            print(f"\033[92m Saving {template['templateName']} Template \033[0m")
             with open(f"{dir_path}/feature_templates/{template_filename}.json", "w") as file:
                 file.write(json.dumps(template))
                 file.close()
 
+        print("\033[1m ---------------------------- DOWLOADING DEVICE  TEMPLATES ------------------------------\033[0m")
         for template in device_templates['data']:
             template_id = template['templateId']
             template_data = device.fetch_template_by_id(template_id)
-            if template["configType"] == "file":
+            if template_data["configType"] == "file":
+                print(f"\033[92m Saving {template['templateName']} Template \033[0m")
                 with open(f"{dir_path}/device_templates/cli/{template_id}.json", "w") as file:
                     file.write(json.dumps(template_data))
                     file.close()
             elif template_data["configType"] == "template":
+                print(f"\033[92m Saving {template['templateName']} Template \033[0m")
                 with open(f"{dir_path}/device_templates/features/{template_id}.json", "w") as file:
                     file.write(json.dumps(template_data))
                     file.close()
@@ -170,7 +175,7 @@ class VmanagePrompts:
         )
         rotate_data = {}
 
-        print("\033[1m -------------------------------- UPLOADING FEATURE TEMPLATES --------------------------------- ")
+        print("\033[1m ------------------------------ UPLOADING FEATURE TEMPLATES ---------------------------- \033[0m")
         for feature_template in os.listdir(feature_templates_path):
             with open(f"{feature_templates_path}/{feature_template}", "r") as file:
                 file_content = file.read()
