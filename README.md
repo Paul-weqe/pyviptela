@@ -1,5 +1,5 @@
 # What is PyViptela
-Pyviptela is consisted of various python packages, all carrying out requests to the viptela controller and currently only downloading and uploading templates to Vmanage. 
+Pyviptela is consisted of various python packages, all carrying out requests to the viptela controller and currently only downloading and uploading templates from one Vmanage to another Vmanage. 
 
 ## PyViptela Documentation
 
